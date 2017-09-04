@@ -11,7 +11,7 @@ class GithubAuthorization extends Authorization
      */
     public function handle()
     {
-        list ($algorithm, $gitHubSignature) = explode("=", $this->request->header('x-github-signature'));
+        list ($algorithm, $gitHubSignature) = explode("=", $this->request->header('x-hub-signature'));
 
         if ($algorithm !== 'sha1') {
             // see https://developer.github.com/webhooks/securing/
