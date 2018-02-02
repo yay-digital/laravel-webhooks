@@ -10,4 +10,15 @@ interface EventClassHandlerInterface
      */
     public function getEventClass();
 
+    /**
+     * Set parameters for EventClassHandler
+     *
+     * @param WebhooksInterface $webhooks
+     * @param $webhookName
+     * @param $eventName
+     * @param array $eventMap
+     *
+     * @return mixed
+     */
+    public function setParameters(WebhooksInterface $webhooks, $webhookName, $eventName, $eventMap = []);
 }

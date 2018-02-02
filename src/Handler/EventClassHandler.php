@@ -35,13 +35,14 @@ class EventClassHandler implements EventClassHandlerInterface
     protected $webhooks;
 
     /**
-     * EventClassHandler constructor.
+     * Set parameters for EventClassHandler
+     *
      * @param WebhooksInterface $webhooks
      * @param $webhookName
      * @param string $eventName
      * @param array $eventMap
      */
-    public function __construct(WebhooksInterface $webhooks, $webhookName, $eventName, $eventMap = [])
+    public function setParameters(WebhooksInterface $webhooks, $webhookName, $eventName, $eventMap = [])
     {
         $this->eventName = $eventName;
         $this->webhookName = $webhookName;

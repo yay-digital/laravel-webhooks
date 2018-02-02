@@ -80,12 +80,13 @@ abstract class WebhookRequest extends FormRequest
      */
     protected function getEventClassHandler()
     {
-        return app(EventClassHandlerInterface::class, [
-            app(WebhooksInterface::class),
+        $eventClassHandler = app(EventClassHandlerInterface::class);
+        $eventClassHandler->setParameters(app(WebhooksInterface::class),
             $this->getWebhookName(),
             $this->getEventName(),
-            $this->getEvents(),
-        ]);
+            $this->getEvents());
+
+        return $eventClassHandler;
     }
 
     /**
