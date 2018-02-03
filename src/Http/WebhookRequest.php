@@ -114,7 +114,11 @@ abstract class WebhookRequest extends FormRequest
      */
     protected function getEventName()
     {
-        return $this->request->get($this->getEventField());
+        if (request()->hasHeader($this->getEventField())) {
+            return request()->header($this->getEventField());
+        }
+
+        return request()->get($this->getEventField());
     }
 
     /**
